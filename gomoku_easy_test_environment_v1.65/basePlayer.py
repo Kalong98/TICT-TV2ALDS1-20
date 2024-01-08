@@ -9,7 +9,6 @@ class basePlayer:
     2) it specifies the required methods that will be used by the competition to run
     your player
     """
-
     def __init__(self, black_: bool = True):
         """Constructor for the player."""
         self.black = black_
@@ -21,16 +20,14 @@ class basePlayer:
         """
         self.black = black_
 
-    def move(
-        self, state: GameState, last_move: Move, max_time_to_move: int = 1000
-    ) -> Move:
+    def move(self, state: GameState, last_move: Move, max_time_to_move: int = 1000) -> Move:
         """This is the most important method: the agent will get:
         1) the current state of the game
         2) the last move by the opponent
         3) the available moves you can play (this is a special service we provide ;-) )
         4) the maximum time until the agent is required to make a move in milliseconds [diverging from this will lead to disqualification].
         """
-        moves = GmUtils.getValidMoves(state[0])
+        moves=GmUtils.getValidMoves(state[0])
         return random.choice(moves)
 
     def id(self) -> str:
